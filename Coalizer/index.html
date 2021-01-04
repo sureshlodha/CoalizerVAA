@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html> 
+  <head>
+    <!-- Meta Tag -->
+    <meta charset="utf-8">
+    <title>Coalizer Base Viz (Hard Coded German Bundestag Wahl-O-Mat 2017)</title>
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="coalizerViz.css">
+    <!-- D3.js Source -->
+    <script type= "text/javascript" src="https://d3js.org/d3.v5.min.js"></script>       
+  </head>
+  <body>
+    <h1>Viable Coalitions based on Office and Policy Motivations</h1>
+    <script type="text/javascript" src="coalizerViz.js"></script>
+    <form>
+      <input type="checkbox" id="overlay" name="overlay">
+      <label for="overlay">Most Viable Utilities</label>
+    </form>
+    <div id="legend" class="legend">
+      <ul>
+        <li><b>Parameters</b>
+          <div id="axis-descriptions" class="axis-descriptions"> The office parameter (α) along the top axis represents the percent of seats in parliment each coalition would control<br/>
+          The policy parameter (β) along the bottom axis is a scaled score to represent how much party centric policy the coaltion would be able to implement<br/>
+          Office (α) + Policy (β) = 1
+        </div>
+        </li>
+        <li><b>Blocks</b>
+          <div id="example" class="example"> A white block represents a non utility maximizing coalition or the opposition
+          <div id="white-box" class="white-box">Opposition</div>
+          A shaded block represent a utility maximizing coalition (CS: CDU/CSU&SPD)
+          <div id="shaded-box" class="shaded-box">CS</div>
+        </div>
+        </li>
+        <li><b>Dotted Line</b><br/>
+          The dotted lined that runs through the blocks is the utility value for the coalition at the specific office and policy value
+          <div id="shaded-box" class="shaded-box">SFL <div class="dotted-line"></div></div>
+        </li>
+        <li><b>Interpretation</b>
+          In a block, a Minimum Winning Coalition has a range of policy and office control that can be negotiated between coalition members. The range is shown by vertical boundaries of the block and the utility values for the party in  that row are depicted by the dotted lines for this range.
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

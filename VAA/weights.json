@@ -1,0 +1,591 @@
+{
+  "nodes": [
+    {
+      "id": "User",
+      "group": 1
+    },
+    {
+      "id": "C",
+      "group": 2
+    },
+    {
+      "id": "A",
+      "group": 2
+    },
+    {
+      "id": "L",
+      "group": 2
+    },
+    {
+      "id": "G",
+      "group": 2
+    },
+    {
+      "id": "S",
+      "group": 2
+    },
+    {
+      "id": "F",
+      "group": 2
+    },
+    {
+      "id": "R",
+      "group": 2
+    },
+    {
+      "id": "CA",
+      "group": 3
+    },
+    {
+      "id": "AGS",
+      "group": 3
+    },
+    {
+      "id": "ALG",
+      "group": 3
+    },
+    {
+      "id": "ALS",
+      "group": 3
+    },
+    {
+      "id": "CGS",
+      "group": 3
+    },
+    {
+      "id": "CLG",
+      "group": 3
+    },
+    {
+      "id": "CLS",
+      "group": 3
+    }
+  ],
+  "links": [
+    {
+      "source": "User",
+      "target": "C",
+      "value": 0.556
+    },
+    {
+      "source": "User",
+      "target": "A",
+      "value": 0.574
+    },
+    {
+      "source": "User",
+      "target": "L",
+      "value": 0.466
+    },
+    {
+      "source": "User",
+      "target": "G",
+      "value": 0.444
+    },
+    {
+      "source": "User",
+      "target": "S",
+      "value": 0.429
+    },
+    {
+      "source": "User",
+      "target": "F",
+      "value": 0.532
+    },
+    {
+      "source": "User",
+      "target": "R",
+      "value": 0.243
+    },
+    {
+      "source": "User",
+      "target": "CA",
+      "value": 0.511
+    },
+    {
+      "source": "User",
+      "target": "AGS",
+      "value": 0.273
+    },
+    {
+      "source": "User",
+      "target": "ALG",
+      "value": 0.204
+    },
+    {
+      "source": "User",
+      "target": "ALS",
+      "value": 0.244
+    },
+    {
+      "source": "User",
+      "target": "CGS",
+      "value": 0.346
+    },
+    {
+      "source": "User",
+      "target": "CLG",
+      "value": 0.291
+    },
+    {
+      "source": "User",
+      "target": "CLS",
+      "value": 0.308
+    },
+    {
+      "source": "C",
+      "target": "A",
+      "value": 0.480
+    },
+    {
+      "source": "C",
+      "target": "L",
+      "value": 0.851
+    },
+    {
+      "source": "C",
+      "target": "G",
+      "value": 0.774
+    },
+    {
+      "source": "C",
+      "target": "S",
+      "value": 0.644
+    },
+    {
+      "source": "C",
+      "target": "F",
+      "value": 0.444
+    },
+    {
+      "source": "C",
+      "target": "R",
+      "value": 0.459
+    },
+    {
+      "source": "C",
+      "target": "CA",
+      "value": 0.240
+    },
+    {
+      "source": "C",
+      "target": "AGS",
+      "value": 0.404
+    },
+    {
+      "source": "C",
+      "target": "ALG",
+      "value": 0.471
+    },
+    {
+      "source": "C",
+      "target": "ALS",
+      "value": 0.445
+    },
+    {
+      "source": "C",
+      "target": "CGS",
+      "value": 0.302
+    },
+    {
+      "source": "C",
+      "target": "CLG",
+      "value": 0.400
+    },
+    {
+      "source": "C",
+      "target": "CLS",
+      "value": 0.351
+    },
+    {
+      "source": "A",
+      "target": "L",
+      "value": 0.949
+    },
+    {
+      "source": "A",
+      "target": "G",
+      "value": 0.925
+    },
+    {
+      "source": "A",
+      "target": "S",
+      "value": 0.778
+    },
+    {
+      "source": "A",
+      "target": "F",
+      "value": 0.568
+    },
+    {
+      "source": "A",
+      "target": "R",
+      "value": 0.493
+    },
+    {
+      "source": "A",
+      "target": "CA",
+      "value": 0.240
+    },
+    {
+      "source": "A",
+      "target": "AGS",
+      "value": 0.368
+    },
+    {
+      "source": "A",
+      "target": "ALG",
+      "value": 0.462
+    },
+    {
+      "source": "A",
+      "target": "ALS",
+      "value": 0.406
+    },
+    {
+      "source": "A",
+      "target": "CGS",
+      "value": 0.566
+    },
+    {
+      "source": "A",
+      "target": "CLG",
+      "value": 0.618
+    },
+    {
+      "source": "A",
+      "target": "CLS",
+      "value": 0.575
+    },
+    {
+      "source": "L",
+      "target": "G",
+      "value": 0.334
+    },
+    {
+      "source": "L",
+      "target": "S",
+      "value": 0.507
+    },
+    {
+      "source": "L",
+      "target": "F",
+      "value": 0.795
+    },
+    {
+      "source": "L",
+      "target": "R",
+      "value": 0.500
+    },
+    {
+      "source": "L",
+      "target": "CA",
+      "value": 0.869
+    },
+    {
+      "source": "L",
+      "target": "AGS",
+      "value": 0.622
+    },
+    {
+      "source": "L",
+      "target": "ALG",
+      "value": 0.498
+    },
+    {
+      "source": "L",
+      "target": "ALS",
+      "value": 0.556
+    },
+    {
+      "source": "L",
+      "target": "CGS",
+      "value": 0.586
+    },
+    {
+      "source": "L",
+      "target": "CLG",
+      "value": 0.461
+    },
+    {
+      "source": "L",
+      "target": "CLS",
+      "value": 0.511
+    },
+    {
+      "source": "G",
+      "target": "S",
+      "value": 0.459
+    },
+    {
+      "source": "G",
+      "target": "F",
+      "value": 0.748
+    },
+    {
+      "source": "G",
+      "target": "R",
+      "value": 0.493
+    },
+    {
+      "source": "G",
+      "target": "CA",
+      "value": 0.818
+    },
+    {
+      "source": "G",
+      "target": "AGS",
+      "value": 0.569
+    },
+    {
+      "source": "G",
+      "target": "ALG",
+      "value": 0.481
+    },
+    {
+      "source": "G",
+      "target": "ALS",
+      "value": 0.556
+    },
+    {
+      "source": "G",
+      "target": "CGS",
+      "value": 0.487
+    },
+    {
+      "source": "G",
+      "target": "CLG",
+      "value": 0.396
+    },
+    {
+      "source": "G",
+      "target": "CLS",
+      "value": 0.469
+    },
+    {
+      "source": "S",
+      "target": "F",
+      "value": 0.664
+    },
+    {
+      "source": "S",
+      "target": "R",
+      "value": 0.452
+    },
+    {
+      "source": "S",
+      "target": "CA",
+      "value": 0.673
+    },
+    {
+      "source": "S",
+      "target": "AGS",
+      "value": 0.442
+    },
+    {
+      "source": "S",
+      "target": "ALG",
+      "value": 0.440
+    },
+    {
+      "source": "S",
+      "target": "ALS",
+      "value": 0.426
+    },
+    {
+      "source": "S",
+      "target": "CGS",
+      "value": 0.381
+    },
+    {
+      "source": "S",
+      "target": "CLG",
+      "value": 0.389
+    },
+    {
+      "source": "S",
+      "target": "CLS",
+      "value": 0.357
+    },
+    {
+      "source": "F",
+      "target": "R",
+      "value": 0.444
+    },
+    {
+      "source": "F",
+      "target": "CA",
+      "value": 0.450
+    },
+    {
+      "source": "F",
+      "target": "AGS",
+      "value": 0.458
+    },
+    {
+      "source": "F",
+      "target": "ALG",
+      "value": 0.484
+    },
+    {
+      "source": "F",
+      "target": "ALS",
+      "value": 0.474
+    },
+    {
+      "source": "F",
+      "target": "CGS",
+      "value": 0.443
+    },
+    {
+      "source": "F",
+      "target": "CLG",
+      "value": 0.474
+    },
+    {
+      "source": "F",
+      "target": "CLS",
+      "value": 0.452
+    },
+    {
+      "source": "R",
+      "target": "CA",
+      "value": 0.412
+    },
+    {
+      "source": "R",
+      "target": "AGS",
+      "value": 0.205
+    },
+    {
+      "source": "R",
+      "target": "ALG",
+      "value": 0.135
+    },
+    {
+      "source": "R",
+      "target": "ALS",
+      "value": 0.167
+    },
+    {
+      "source": "R",
+      "target": "CGS",
+      "value": 0.282
+    },
+    {
+      "source": "R",
+      "target": "CLG",
+      "value": 0.234
+    },
+    {
+      "source": "R",
+      "target": "CLS",
+      "value": 0.237
+    },
+    {
+      "source": "CA",
+      "target": "AGS",
+      "value": 0.303
+    },
+    {
+      "source": "CA",
+      "target": "ALG",
+      "value": 0.400
+    },
+    {
+      "source": "CA",
+      "target": "ALS",
+      "value": 0.352
+    },
+    {
+      "source": "CA",
+      "target": "CGS",
+      "value": 0.385
+    },
+    {
+      "source": "CA",
+      "target": "CLG",
+      "value": 0.462
+    },
+    {
+      "source": "CA",
+      "target": "CLS",
+      "value": 0.412
+    },
+    {
+      "source": "AGS",
+      "target": "ALG",
+      "value": 0.142
+    },
+    {
+      "source": "AGS",
+      "target": "ALS",
+      "value": 0.099
+    },
+    {
+      "source": "AGS",
+      "target": "CGS",
+      "value": 0.267
+    },
+    {
+      "source": "AGS",
+      "target": "CLG",
+      "value": 0.295
+    },
+    {
+      "source": "AGS",
+      "target": "CLS",
+      "value": 0.264
+    },
+    {
+      "source": "ALG",
+      "target": "ALS",
+      "value": 0.099
+    },
+    {
+      "source": "ALG",
+      "target": "CGS",
+      "value": 0.285
+    },
+    {
+      "source": "ALG",
+      "target": "CLG",
+      "value": 0.240
+    },
+    {
+      "source": "ALG",
+      "target": "CLS",
+      "value": 0.245
+    },
+    {
+      "source": "ALS",
+      "target": "CGS",
+      "value": 0.291
+    },
+    {
+      "source": "ALS",
+      "target": "CLG",
+      "value": 0.282
+    },
+    {
+      "source": "ALS",
+      "target": "CLS",
+      "value": 0.251
+    },
+    {
+      "source": "CGS",
+      "target": "CLG",
+      "value": 0.141
+    },
+    {
+      "source": "CGS",
+      "target": "CLS",
+      "value": 0.102
+    },
+    {
+      "source": "CLG",
+      "target": "CLS",
+      "value": 0.097
+    }
+  ]
+}
