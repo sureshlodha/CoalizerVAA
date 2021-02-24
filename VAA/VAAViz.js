@@ -8,11 +8,12 @@ Contructs the Multi Line chart using D3
 var margin = {top: 20, right: 80, bottom: 30, left: 70},
     //make the width variable for the chart and the height variable according to the margins
     width = 1500 - margin.left - margin.right,
-    height = 600 - margin.top - margin.bottom;
+    height = 450 - margin.top - margin.bottom;
 
 
 //create the svg and append to svg variable to call again later and put it in body section of html
 var svg = d3.select("body").append("svg")
+    .attr("class", "svg")
     //setting the width and height attributes of the svg using the marging vars defined above
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -21,11 +22,16 @@ var svg = d3.select("body").append("svg")
     //translate the svg by the margins
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+var tooltip = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+
 d3.csv("distances.csv").then(function(data){
   var scale = d3.scaleLinear().range([0, 1000]).domain([0, 1]);
-  
+  console.log(scale(0.5));
   var axisD = d3.axisBottom().scale(scale).ticks(1).tickSize(30);
   var axisDTop = d3.axisTop().scale(scale).ticks(1).tickSize(30).tickFormat("");
+  var axisTicks = d3.axisTop().scale(scale).tickValues([0.2, 0.5, 0.7]);
   
   var length = 125;
   var labelX = 150;
@@ -51,13 +57,26 @@ d3.csv("distances.csv").then(function(data){
         .attr("cx", scale(d.Distance))
         .attr("cy", dotOffset)
         .attr("r", 3.5)
-        .style("fill", "black");
-
+        .style("fill", "black")
+        .on("mouseover", function(){
+        tooltip.transition()
+        .duration(200)
+        .style("opacity", 1);
+        tooltip.html("<p>" + d.Distance + "</p>")
+        .style("top", (d3.event.pageY+10) + "px")		
+        .style("left", (d3.event.pageX) + "px");	
+      })
+      .on("mouseout", function(d){
+          tooltip.transition()
+              .duration(200)
+              .style("opacity", 0); 
+      }); 
+      
       var labels = svg.append("text")
         .attr("class", "labels")
         .attr("x", labelX)
         .attr("y", labelPos)
-        .text(d.Name);
+        .text(d.Name + "(" + parseFloat(d.Distance).toFixed(2) +")");
 
       var arrows = svg.append("line")
         .attr("class", "arrows")
@@ -76,7 +95,7 @@ d3.csv("distances.csv").then(function(data){
   
    var vizLine = svg.append("g")
         .attr("class", "D-axis")
-        .attr("transform", "translate(150, 100)")
+        .attr("transform", "translate(0, 100)")
         .call(axisD);
   
   vizLine.append("text")
@@ -88,13 +107,29 @@ d3.csv("distances.csv").then(function(data){
   
   var vizLineTop = svg.append("g")
         .attr("class", "D-axis-Top")
-        .attr("transform", "translate(150, 100)")
+        .attr("transform", "translate(0, 100)")
         .call(axisDTop);
+  
+  var vizLineTicks = svg.append("g")
+        .attr("class", "D-axis")
+        .attr("transform", "translate(0, 100)")
+        .call(axisTicks);
+  
+  var partyLabel = svg.append("text")
+    .attr("x", 0)
+    .attr("y", 25)
+    .text("Single Parties ------>");
+  
+  var coalitionLabel = svg.append("text")
+    .attr("x", 0)
+    .attr("y", 175)
+    .text("Coalitions ------>");
   
 })
 
 //create the svg and append to svg variable to call again later and put it in body section of html
 var svg2 = d3.select("body").append("svg")
+    .attr("class", "svg2")
     //setting the width and height attributes of the svg using the marging vars defined above
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -103,6 +138,7 @@ var svg2 = d3.select("body").append("svg")
     //translate the svg by the margins
     .attr("transform", "translate(" + (margin.left) + "," + (margin.top+height) + ")");
 
+var tickerSemaphore = -2;
 d3.json("weights.json").then(function(graph){
   console.log(graph);
   
@@ -128,7 +164,8 @@ d3.json("weights.json").then(function(graph){
     .attr("rx", 40)
     .attr("ry", 30)
     .style("stroke", "black")
-    .style("fill", function(d) { if(d.group == 1){ return "#ECFBFC" } else if(d.group == 2){ return "#ffebd9"} else return "#ffc8bd"});
+    .style("fill", function(d) { if(d.group == 1){ return "#ECFBFC" } else if(d.group == 2){ return "#ffebd9"} else return "#ffc8bd"})
+    .on("click", function(d){ distanceFocus(d)});
     
   var labels = svg2.append("g")
     .selectAll("text")
@@ -151,7 +188,6 @@ d3.json("weights.json").then(function(graph){
   );
   
   d3.selectAll("input").on("change", function(){
-    console.log(this.value)
     focus(this.value)
   });
   
@@ -218,5 +254,55 @@ d3.json("weights.json").then(function(graph){
             return o.group == code ? 0.3 : 1;
         });
       
+  }
+  
+  d3.select("#distance").on("change", function(){
+    if(d3.select("#distance").property("checked") == false){
+      d3.select("#distval").property("value", "No Selections");
+      tickerSemaphore = -2;
+      focus(-1);
+    } else {
+      d3.select("#distval").property("value", "Make First Selection");
+    }
+  })
+  
+  function distanceFocus(code) {
+    if(d3.select("#distance").property("checked")){
+      if(tickerSemaphore == -2){
+        firstID = code.id;
+        tickerSemaphore = tickerSemaphore + 1;
+        node.style("opacity", function(o) {
+          return o.id == code.id ? 1 : 0.3;
+        });
+
+        link.style("opacity", function(o) {
+          return o.source.id == code.id || o.target.id == code.id ? 1 : 0;
+        });
+        d3.select("#distval").property("value", "Make Second Selection");
+      } else if (tickerSemaphore == -1){
+        if(code.id != firstID){
+          tickerSemaphore = tickerSemaphore + 1;
+          node.style("opacity", function(o) {
+            return (o.id == code.id)||(o.id == firstID) ? 1 : 0;
+          });
+
+          link.style("opacity", function(o) {
+            if((o.source.id == code.id && o.target.id == firstID)||(o.source.id == firstID && o.target.id == code.id)){ weight = o.value;}
+            return (o.source.id == code.id && o.target.id == firstID)||(o.source.id == firstID && o.target.id == code.id) ? 1 : 0;
+          });
+          labels.style("opacity", function(o) {
+              return (o.id == code.id)||(o.id == firstID) ? 1 : 0;
+          });
+          d3.select("#distval").property("value", weight);
+        }
+      } else {
+        tickerSemaphore = -2;
+        focus(-1)
+        d3.select("#distval").property("value", "Make First Selection");
+      }
+    } else {
+      tickerSemaphore = -2;
+      focus(-1);
+    }
   }
 })
