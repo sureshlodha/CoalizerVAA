@@ -8,7 +8,7 @@ Contructs the Multi Line chart using D3
 var margin = {top: 20, right: 80, bottom: 30, left: 70},
     //make the width variable for the chart and the height variable according to the margins
     width = 1500 - margin.left - margin.right,
-    height = 450 - margin.top - margin.bottom;
+    height = 245 - margin.top - margin.bottom;
 
 
 //create the svg and append to svg variable to call again later and put it in body section of html
@@ -132,11 +132,11 @@ var svg2 = d3.select("body").append("svg")
     .attr("class", "svg2")
     //setting the width and height attributes of the svg using the marging vars defined above
     .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+    .attr("height", height + margin.top + margin.bottom+200)
     //use .append("g") to append all svg elements to the DOM
     .append("g")
     //translate the svg by the margins
-    .attr("transform", "translate(" + (margin.left) + "," + (margin.top+height) + ")");
+    .attr("transform", "translate(" + (margin.left) + "," + (margin.top+height+100) + ")");
 
 var tickerSemaphore = -2;
 d3.json("weights.json").then(function(graph){
@@ -175,10 +175,10 @@ d3.json("weights.json").then(function(graph){
     .attr("transform", function(node) { console.log(node);
       return "translate(" + node.x-30 + "," + node.y + ")";
     })
-    .text(function(node){ return node.id;})
+    .text(function(node){ if(node.id != "User"){return node.id + "(" + parseFloat(node.distance).toFixed(2) + ")"} else return node.id;})
     .attr("fill", "black")
     .attr("text-anchor", "middle")
-    .style("font-size", 20);
+    .style("font-size", 17);
   
   node.call(
     d3.drag()
@@ -267,7 +267,7 @@ d3.json("weights.json").then(function(graph){
   })
   
   function distanceFocus(code) {
-    if(d3.select("#distance").property("checked")){
+    if(d3.select("#distance").property("checked") && code.id != "User"){
       if(tickerSemaphore == -2){
         firstID = code.id;
         tickerSemaphore = tickerSemaphore + 1;
@@ -283,7 +283,7 @@ d3.json("weights.json").then(function(graph){
         if(code.id != firstID){
           tickerSemaphore = tickerSemaphore + 1;
           node.style("opacity", function(o) {
-            return (o.id == code.id)||(o.id == firstID) ? 1 : 0;
+            return (o.id == code.id)||(o.id == firstID) ? 1 : 0.3;
           });
 
           link.style("opacity", function(o) {
@@ -291,7 +291,7 @@ d3.json("weights.json").then(function(graph){
             return (o.source.id == code.id && o.target.id == firstID)||(o.source.id == firstID && o.target.id == code.id) ? 1 : 0;
           });
           labels.style("opacity", function(o) {
-              return (o.id == code.id)||(o.id == firstID) ? 1 : 0;
+              return (o.id == code.id)||(o.id == firstID) ? 1 : 0.3;
           });
           d3.select("#distval").property("value", weight);
         }

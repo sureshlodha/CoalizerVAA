@@ -6,59 +6,73 @@
     },
     {
       "id": "C",
-      "group": 2
+      "group": 2,
+      "distance": 0.556
     },
     {
       "id": "A",
-      "group": 2
+      "group": 2,
+      "distance": 0.574
     },
     {
       "id": "L",
-      "group": 2
+      "group": 2,
+      "distance": 0.466
     },
     {
       "id": "G",
-      "group": 2
+      "group": 2,
+      "distance": 0.444
     },
     {
       "id": "S",
-      "group": 2
+      "group": 2,
+      "distance": 0.429
     },
     {
       "id": "F",
-      "group": 2
+      "group": 2,
+      "distance": 0.532
     },
     {
       "id": "R",
-      "group": 2
+      "group": 2,
+      "distance": 0.243
     },
     {
       "id": "CA",
-      "group": 3
+      "group": 3,
+      "distance": 0.511
     },
     {
       "id": "AGS",
-      "group": 3
+      "group": 3,
+      "distance": 0.273
     },
     {
       "id": "ALG",
-      "group": 3
+      "group": 3,
+      "distance": 0.204
     },
     {
       "id": "ALS",
-      "group": 3
+      "group": 3,
+      "distance": 0.244
     },
     {
       "id": "CGS",
-      "group": 3
+      "group": 3,
+      "distance": 0.346
     },
     {
       "id": "CLG",
-      "group": 3
+      "group": 3,
+      "distance": 0.291
     },
     {
       "id": "CLS",
-      "group": 3
+      "group": 3,
+      "distance": 0.308
     }
   ],
   "links": [
